@@ -4,7 +4,25 @@
 
 <!DOCTYPE html>
 <html>
-
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+ 
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+ 
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
 <body>
     <h1>Добро пожаловать на сайт проката автомобилей!</h1>
 </body>
@@ -24,6 +42,6 @@
    </table>
 </div>
 
-<a href="${pageContext.request.contextPath}/addPoint">Добавить точку проката</a>
+<a href="${pageContext.request.contextPath}/add-Point">Добавить точку проката</a>
  
 </html>

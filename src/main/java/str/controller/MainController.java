@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import str.model.Auto;
 import str.model.PointsOfSale;
@@ -29,35 +30,19 @@ public class MainController {
     }
  
     @RequestMapping(value="/", method=RequestMethod.GET)
-    public String getMain(Model model) {
+    public String getMainMenu(Model model) {
         model.addAttribute("points", points);
         return "main";
     }
     
-    /**@RequestMapping(value = { "/addPoint" }, method = RequestMethod.GET)
-    public String addPoint(Model model) {
- 
-    	PointsOfSale point = new PointsOfSale();
-        model.addAttribute("point", point);
- 
-        return "addPoint";
+    @RequestMapping(value =  "/add-Point" , method = RequestMethod.GET)
+    public String addPointPage() {
+        return "addPointPage";
     }
  
-    @RequestMapping(value = { "/addPoint" }, method = RequestMethod.POST)
-    public String addPoint(Model model, //
-            @ModelAttribute("point") PointsOfSale _point) {
- 
-        String firstName = _point.getName();
- 
-        if (firstName != null && firstName.length()>0) {
-        	PointsOfSale newPoint = new PointsOfSale(firstName, "");
-            points.add(newPoint);
- 
-            return "redirect:/main";
-        }
-        String error = "First Name & Last Name is required!";
-        model.addAttribute("errorMessage", error);
-        return "addPoint";
-    }*/
- 
+    @RequestMapping(value= "/add-Point", method=RequestMethod.POST)
+    public String addPoint(@RequestParam(value="title") String title) {
+    	//points.add(new PointsOfSale(title, "автомобили"));
+    	return "redirect:/";
+    }
 }
