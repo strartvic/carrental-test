@@ -42,7 +42,7 @@ public class MainController {
  
     @RequestMapping(value= "/add-Point", method=RequestMethod.POST)
     public String addPoint(@RequestParam(value="title") String title) {
-    	//points.add(new PointsOfSale(title, "автомобили"));
+    	points.add(new PointsOfSale(title, "автомобили"));
     	return "redirect:/";
     }
 }
