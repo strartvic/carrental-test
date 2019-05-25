@@ -36,7 +36,7 @@ tr:nth-child(even) {
       <c:forEach  items="${points}" var ="point">
          <tr>
              <td>${point.name}</td>
-             <td>${point.lastName}</td>
+             <td><a href="${pageContext.request.contextPath}/delete-Point/${point.name}">Удалить</a></td>
          </tr>
       </c:forEach>
    </table>
