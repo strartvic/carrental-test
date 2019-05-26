@@ -24,24 +24,24 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-    <h1>Добро пожаловать на сайт проката автомобилей!</h1>
+    <h1>История аренды ${name}</h1>
 </body>
 
 <div>
    <table border="1">
       <tr>
-         <th>Точки проката</th>
-         <th>Действия</th>
+         <th>Арендатор</th>
+         <th>Дата начала аренды</th>
+         <th>Дата окончания аренды</th>
       </tr>
-      <c:forEach  items="${points}" var ="point">
+      <c:forEach  items="${history}" var ="item">
          <tr>
-             <td><a href="${pageContext.request.contextPath}/point-page/${point.name}">${point.name}</a></td>
-             <td><a href="${pageContext.request.contextPath}/delete-point/${point.name}">Удалить</a></td>
+             <td>${item.renter}</td>
+             <td>${item.dateBegin}</td>
+             <td>${item.dateEnd}</td>
          </tr>
       </c:forEach>
    </table>
 </div>
-
-<a href="${pageContext.request.contextPath}/add-Point">Добавить точку проката</a>
  
 </html>
