@@ -11,12 +11,12 @@ public class Carrental implements ICarrental {
 	private List<PointOfSale> points = new ArrayList<PointOfSale>();
 
 	public Carrental() {
-		points.add(new PointOfSale("Ленина 101"));
-		points.add(new PointOfSale("Парк Победы 45"));
+		points.add(new PointOfSale("Р›РµРЅРёРЅР° 101"));
+		points.add(new PointOfSale("РџР°СЂРє РџРѕР±РµРґС‹ 45"));
 
-		points.get(0).addAuto(new Auto("Lada", "о723вн"));
-		points.get(0).addAuto(new Auto("KIA", "к763гп"));
-		points.get(0).addAuto(new Auto("SOLARIS", "у123ми"));
+		points.get(0).addAuto(new Auto("Lada", "Рї723РєРЅ"));
+		points.get(0).addAuto(new Auto("KIA", "РІ763РїСЂ"));
+		points.get(0).addAuto(new Auto("SOLARIS", "Р°123РїР°"));
 	}
 
 	@Override
