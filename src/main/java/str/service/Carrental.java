@@ -5,38 +5,35 @@ import java.util.List;
 
 import str.model.Auto;
 import str.model.PointOfSale;
+import str.repository.AutoCRUD;
+import str.repository.PointCRUD;
 
 public class Carrental implements ICarrental {
 
 	private List<PointOfSale> points = new ArrayList<PointOfSale>();
 
-	public Carrental() {
-		points.add(new PointOfSale("Ленина 101"));
-		points.add(new PointOfSale("Парк Победы 45"));
+	private PointCRUD pos = new PointCRUD();
 
-		points.get(0).addAuto(new Auto("Lada", "п723кн"));
-		points.get(0).addAuto(new Auto("KIA", "в763пр"));
-		points.get(0).addAuto(new Auto("SOLARIS", "а123па"));
-	}
+	private AutoCRUD auto = new AutoCRUD();
 
 	@Override
 	public void add(PointOfSale _point) {
-		points.add(_point);
+		pos.save(_point);
 	}
 
 	@Override
 	public void delete(PointOfSale _point) {
-		points.remove(_point);
+		pos.delete(_point);
 	}
 
 	@Override
 	public List<PointOfSale> getAll() {
-		return points;
+		return pos.getAll();
 	}
 
 	@Override
 	public PointOfSale get(String _name) {
-		for (PointOfSale point : points) {
+		for (PointOfSale point : pos.getAll()) {
 			if (point.getName().equalsIgnoreCase(_name)) {
 				return point;
 			}

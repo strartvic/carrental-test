@@ -65,7 +65,7 @@ public class MainController {
 	@RequestMapping(value = "/add-auto", method = RequestMethod.POST)
 	public String addAuto(@RequestParam(value = "carModel") String carModel,
 			@RequestParam(value = "number") String number) {
-		carrental.addAuto(currentPoint, new Auto(carModel, number));
+		carrental.addAuto(currentPoint, new Auto(carModel, number, currentPoint.getName()));
 		return "redirect:/";
 	}
 
