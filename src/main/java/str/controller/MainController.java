@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import str.model.Auto;
 import str.model.PointOfSale;
-import str.service.Carrental;
-import str.service.ICarrental;
+import str.service.CarrentalService;
 
 @Controller
 public class MainController {
 
-	private ICarrental carrental = new Carrental();
+	private CarrentalService carrental = new CarrentalService();
 
 	private PointOfSale currentPoint;
 
@@ -65,13 +64,13 @@ public class MainController {
 	@RequestMapping(value = "/add-auto", method = RequestMethod.POST)
 	public String addAuto(@RequestParam(value = "carModel") String carModel,
 			@RequestParam(value = "number") String number) {
-		carrental.addAuto(currentPoint, new Auto(carModel, number, currentPoint.getName()));
+		carrental.addAuto(new Auto(carModel, number, currentPoint.getName()));
 		return "redirect:/";
 	}
 
 	@RequestMapping(value = "delete-auto/{carModel}", method = RequestMethod.GET)
 	public String getDeleteAuto(@PathVariable String carModel) {
-		carrental.deleteAuto(currentPoint, carrental.getAuto(currentPoint, carModel));
+		carrental.deleteAuto(carrental.getAuto(currentPoint, carModel));
 		return "redirect:/";
 	}
 

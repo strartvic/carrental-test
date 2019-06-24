@@ -8,32 +8,26 @@ import str.model.PointOfSale;
 import str.repository.AutoCRUD;
 import str.repository.PointCRUD;
 
-public class Carrental implements ICarrental {
+public class CarrentalService {
 
-	private List<PointOfSale> points = new ArrayList<PointOfSale>();
+	private PointCRUD pointsRep = new PointCRUD();
 
-	private PointCRUD pos = new PointCRUD();
+	private AutoCRUD autosRep = new AutoCRUD();
 
-	private AutoCRUD auto = new AutoCRUD();
-
-	@Override
 	public void add(PointOfSale point) {
-		pos.save(point);
+		pointsRep.save(point);
 	}
 
-	@Override
 	public void delete(PointOfSale point) {
-		pos.delete(point);
+		pointsRep.delete(point);
 	}
 
-	@Override
 	public List<PointOfSale> getAll() {
-		return pos.getAll();
+		return pointsRep.getAll();
 	}
 
-	@Override
 	public PointOfSale get(String name) {
-		for (PointOfSale point : pos.getAll()) {
+		for (PointOfSale point : pointsRep.getAll()) {
 			if (point.getName().equalsIgnoreCase(name)) {
 				return point;
 			}
@@ -41,24 +35,27 @@ public class Carrental implements ICarrental {
 		return null;
 	}
 
-	@Override
-	public void addAuto(PointOfSale point, Auto auto) {
-		point.addAuto(auto);
+	public void addAuto(Auto auto) {
+		autosRep.save(auto);
 	}
 
-	@Override
 	public List<Auto> getAutos(PointOfSale point) {
-		return point.getAutos();
+		List<Auto> temp = autosRep.getAll();
+		List<Auto> autos = new ArrayList<Auto>();
+		for (Auto auto : temp) {
+			if (auto.getPoint().equalsIgnoreCase(point.getName())) {
+				autos.add(auto);
+			}
+		}
+		return autos;
 	}
 
-	@Override
-	public void deleteAuto(PointOfSale point, Auto auto) {
-		point.removeAuto(auto);
+	public void deleteAuto(Auto auto) {
+		autosRep.delete(auto);
 	}
 
-	@Override
 	public Auto getAuto(PointOfSale point, String carModel) {
-		for (Auto auto : point.getAutos()) {
+		for (Auto auto : autosRep.getAll()) {
 			if (auto.getCarModel().equalsIgnoreCase(carModel)) {
 				return auto;
 			}
