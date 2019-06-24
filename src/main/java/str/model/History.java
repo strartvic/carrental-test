@@ -39,13 +39,13 @@ public class History {
 
 	}
 
-	public History(Date _dateBegin, Date _dateEnd, String _renter, String _carModel, String _point, String _number) {
-		dateBegin = _dateBegin;
-		dateEnd = _dateEnd;
-		renter = _renter;
-		point = _point;
-		carModel = _carModel;
-		number = _number;
+	public History(Date dateBegin, Date dateEnd, String renter, String carModel, String point, String number) {
+		this.dateBegin = dateBegin;
+		this.dateEnd = dateEnd;
+		this.renter = renter;
+		this.point = point;
+		this.carModel = carModel;
+		this.number = number;
 	}
 
 	public String getRenter() {

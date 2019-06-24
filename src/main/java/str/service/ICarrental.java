@@ -7,19 +7,19 @@ import str.model.PointOfSale;
 
 public interface ICarrental {
 
-	void add(PointOfSale _point);
+	void add(PointOfSale point);
 
-	void delete(PointOfSale _point);
+	void delete(PointOfSale point);
 
 	List<PointOfSale> getAll();
 
-	PointOfSale get(String _name);
+	PointOfSale get(String name);
 
-	void addAuto(PointOfSale _point, Auto _auto);
+	void addAuto(PointOfSale point, Auto auto);
 
-	void deleteAuto(PointOfSale _point, Auto _auto);
+	void deleteAuto(PointOfSale point, Auto auto);
 
-	List<Auto> getAutos(PointOfSale _point);
+	List<Auto> getAutos(PointOfSale point);
 
-	Auto getAuto(PointOfSale _point, String _carModel);
+	Auto getAuto(PointOfSale point, String carModel);
 }

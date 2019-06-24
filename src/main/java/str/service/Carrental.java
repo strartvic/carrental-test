@@ -17,13 +17,13 @@ public class Carrental implements ICarrental {
 	private AutoCRUD auto = new AutoCRUD();
 
 	@Override
-	public void add(PointOfSale _point) {
-		pos.save(_point);
+	public void add(PointOfSale point) {
+		pos.save(point);
 	}
 
 	@Override
-	public void delete(PointOfSale _point) {
-		pos.delete(_point);
+	public void delete(PointOfSale point) {
+		pos.delete(point);
 	}
 
 	@Override
@@ -32,9 +32,9 @@ public class Carrental implements ICarrental {
 	}
 
 	@Override
-	public PointOfSale get(String _name) {
+	public PointOfSale get(String name) {
 		for (PointOfSale point : pos.getAll()) {
-			if (point.getName().equalsIgnoreCase(_name)) {
+			if (point.getName().equalsIgnoreCase(name)) {
 				return point;
 			}
 		}
@@ -42,24 +42,24 @@ public class Carrental implements ICarrental {
 	}
 
 	@Override
-	public void addAuto(PointOfSale _point, Auto _auto) {
-		_point.addAuto(_auto);
+	public void addAuto(PointOfSale point, Auto auto) {
+		point.addAuto(auto);
 	}
 
 	@Override
-	public List<Auto> getAutos(PointOfSale _point) {
-		return _point.getAutos();
+	public List<Auto> getAutos(PointOfSale point) {
+		return point.getAutos();
 	}
 
 	@Override
-	public void deleteAuto(PointOfSale _point, Auto _auto) {
-		_point.removeAuto(_auto);
+	public void deleteAuto(PointOfSale point, Auto auto) {
+		point.removeAuto(auto);
 	}
 
 	@Override
-	public Auto getAuto(PointOfSale _point, String _carModel) {
-		for (Auto auto : _point.getAutos()) {
-			if (auto.getCarModel().equalsIgnoreCase(_carModel)) {
+	public Auto getAuto(PointOfSale point, String carModel) {
+		for (Auto auto : point.getAutos()) {
+			if (auto.getCarModel().equalsIgnoreCase(carModel)) {
 				return auto;
 			}
 		}

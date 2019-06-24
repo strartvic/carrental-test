@@ -9,7 +9,7 @@ import str.model.PointOfSale;
 
 public class PointCRUD {
 	public void save(PointOfSale pos) {
-		Session session = HibernateUtil.getSessionFactory(PointOfSale.class).openSession(); // открываем сессию
+		Session session = HibernateUtil.getSessionFactory().openSession(); // открываем сессию
 		session.beginTransaction();
 		session.save(pos); // пользуемся ее методами
 		session.flush();
@@ -17,7 +17,7 @@ public class PointCRUD {
 	}
 
 	public void delete(PointOfSale pos) {
-		Session session = HibernateUtil.getSessionFactory(PointOfSale.class).openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		session.delete(pos);
 		session.flush();
@@ -25,12 +25,12 @@ public class PointCRUD {
 	}
 
 	public List<PointOfSale> getAll() {
-		Session session = HibernateUtil.getSessionFactory(PointOfSale.class).openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		return session.createCriteria(PointOfSale.class).list();
 	}
 
 	public PointOfSale getById(Integer id) {
-		Session session = HibernateUtil.getSessionFactory(PointOfSale.class).openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		PointOfSale pos = session.get(PointOfSale.class, id);
 		return pos;
 	}

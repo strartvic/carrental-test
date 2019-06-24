@@ -18,7 +18,7 @@ public class HibernateUtil {
 	private static StandardServiceRegistry registry;
 	private static SessionFactory sessionFactory;
 
-	public static SessionFactory getSessionFactory(Class<?> _class) {
+	public static SessionFactory getSessionFactory() {
 		// реализация синглтона. Если объекта нет - создаем, если есть просто возвращаем
 		if (sessionFactory == null) {
 			try {
